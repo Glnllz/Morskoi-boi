@@ -2,8 +2,18 @@
 Board computerBoard = new Board();
 
 // Расстановка кораблей
-playerBoard.PlaceShips();
-computerBoard.PlaceShipsRandomly();
+Console.WriteLine("выберите способ заполнения поля: 1 - Вручную, 2 - Рандомно");
+switch (Console.ReadLine())
+{
+    case "1":
+        playerBoard.PlaceShips();
+        computerBoard.PlaceShipsRandomly();
+        break;
+    case "2":
+        playerBoard.PlaceShipsRandomly();
+        computerBoard.PlaceShipsRandomly();
+        break;
+}
 
 while (!playerBoard.AllShipsSunk() && !computerBoard.AllShipsSunk())
 {

@@ -97,12 +97,20 @@
     }
 
 
-
     public void ProcessMove(string move, Board targetBoard)
     {
-        int row = move[1] - '1';
-        int column = move[0] - 'A';
-
+        int row;
+        int column;
+        if (move.Length != 2)
+        {
+            row = Convert.ToInt32(move[1] + move[2]);
+            column = move[0] - 'A';
+        }
+        else
+        {
+            row = move[1] - '1';
+            column = move[0] - 'A';
+        }
         if (targetBoard.grid[row, column] == ' ')
         {
             Console.WriteLine("Промах!");
